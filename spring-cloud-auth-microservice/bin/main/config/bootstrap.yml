@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: auth
+endpoints:
+  shutdown:
+    enabled: true
+eureka:
+  server:
+    enable-self-preservation: false

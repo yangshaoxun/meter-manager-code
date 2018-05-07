@@ -1,0 +1,12 @@
+rootProject.name = 'meter-manager-code'
+//微服务注册中心
+include 'spring-cloud-registry-microservice'
+project(':spring-cloud-registry-microservice').projectDir = new File(settingsDir, '/spring-cloud-registry-microservice')
+
+//路由网关微服务
+include 'spring-cloud-gateway-microservice'
+project(':spring-cloud-gateway-microservice').projectDir = new File(settingsDir, '/spring-cloud-gateway-microservice')
+
+//权限微服务
+include 'spring-cloud-auth-microservice'
+project(':spring-cloud-auth-microservice').projectDir = new File(settingsDir, '/spring-cloud-auth-microservice')

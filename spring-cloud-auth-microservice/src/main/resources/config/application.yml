@@ -1,0 +1,109 @@
+#本地默认配置情况
+server:
+  port: 8763
+  
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true #是否从Eureka Server获取注册信息，默认为true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+#配置redis连接信息      
+spring:
+  #配置文件上传大小限制 
+  http:
+    multipart:
+      enabled: true
+      maxFileSize: 10Mb
+      maxRequestSize: 10Mb
+  #redis配置信息
+  redis:
+    host: 172.19.3.159
+    port: 6379
+    database: 10
+    pool:
+      max-active: 10
+      max-idle: 10
+      max-wait: -1
+      min-idle: 0
+  datasource:
+    #数据库连接驱动
+    platform: postgres
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://172.19.3.159:5432/meter
+    username: postgres
+    password: Postgres@cmiot
+    
+    #druid数据库连接池配置信息，spring boot不支持druid配置
+    maxWait: 60000
+    initialSize: 5
+    maxActive: 30
+    minIdle: 5
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    validationQuery: SELECT 1
+    filters: stat,wall,log4j
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: false
+    logSlowSql: true
+    
+  jpa:
+    databasePlatform: org.hibernate.dialect.PostgreSQL9Dialect
+    database: POSTGRESQL
+    showSql: true
+    # generate_ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        strategy: org.hibernate.cfg.EJB3NamingStrategy
+      
+zuul:
+  ignored-services: '*'
+#  sensitive-headers: Cookie,Set-Cookie,Authorization
+  sensitive-headers: Cookie,Set-Cookie
+  retryable: true
+  routes:
+    baidu:
+      path: /baidu/**
+      url: https://www.baidu.com
+#    auth:
+#      #权限认证服务
+#      path: /api/**
+#      service-id: api
+#      strip-prefix: true
+#    report:
+#      #报表分析服务
+#      path: /report/**
+#      service-id: report
+#      strip-prefix: true
+#    admin:
+#      #前端与后台调用
+#      path: /**
+#      service-id: admin
+#      strip-prefix: true
+
+#验证码属性设置
+kaptcha:
+  enabled: true
+  border: "yes"
+  image:
+    width: 140
+    height: 40
+  textproducer:
+    char:
+      length: 4
+      string: abcdefghijkmnpqrstwxyz123456789
+      space: 12
+    font:
+      color: black
+      size: 24
+      names: 微软雅黑

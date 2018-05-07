@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.cmcciot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+ext {
+	springCloudVersion = 'Finchley.RC1'
+}
+
+dependencies {
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+	compile('com.netflix.hystrix:hystrix-core')
+	//添加spring security
+    compile("org.springframework.boot:spring-boot-starter-security")
+    
+    //添加redis缓存服务器
+    compile("org.springframework.boot:spring-boot-starter-data-redis")
+    //postgresql数据库连接
+    compile  "org.postgresql:postgresql"
+    compile "com.alibaba:druid"
+    
+    compile "io.jsonwebtoken:jjwt:0.9.0"
+    
+    compile ('com.github.penggle:kaptcha:2.3.2') {
+        exclude group: "javax.servlet", module: "javax.servlet-api"
+    }
+    
+	compile('org.projectlombok:lombok:1.16.20')
+	
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
