@@ -8,25 +8,25 @@
 
 | 序号 | 项目 | 功能 | 版本 | 端口分配 | 部署说明 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1 | cmcciot-meter-registry-microservice | 服务注册中心 | 1.0.0 | 8501 | 159 server,160 server |
-| 2 | cmcciot-meter-gateway-microservice | 路由网关 | 1.0.0 | 8502 | 159 server，160 server |
-| 3 | cmcciot-meter-auth-microservice | 权限认证微服务 | 1.0.0 | 8503 | 159 server，160 server |
-| 4 | cmcciot-meter-fee-microservice | 费用管理微服务 | 1.0.0 | 8504 | 159 server，160 server |
-| 5 | cmcciot-meter-admin-microservice | 后台管理微服务 | 1.0.0 | 8505 | 159 server，160 server |
-| 6 | cmcciot-meter-dataanalysis-microservice | 表计上传微服务 | 1.0.0 | 8506 | 159 server,160 server |
-| 7 | cmcciot-meter-report-microservice | 报表微服务 | 1.0.0 | 8507 | 159 server，160 server |
+| 1 | spring-cloud-registry-microservice | 服务注册中心 | 1.0.0 | 8761 | 159 server,160 server |
+| 2 | spring-cloud-gateway-microservice | 路由网关 | 1.0.0 | 8762 | 159 server，160 server |
+| 3 | spring-cloud-auth-microservice | 权限认证微服务 | 1.0.0 | 8763 | 159 server，160 server |
+| 4 | spring-cloud-fee-microservice | 费用管理微服务 | 1.0.0 | 8764 | 159 server，160 server |
+| 5 | spring-cloud-admin-microservice | 后台管理微服务 | 1.0.0 | 8765 | 159 server，160 server |
+| 6 | spring-cloud-dataanalysis-microservice | 表计上传微服务 | 1.0.0 | 8766 | 159 server,160 server |
+| 7 | spring-cloud-report-microservice | 报表微服务 | 1.0.0 | 8767 | 159 server，160 server |
 
 ##本地环境说明
 
 | 序号 | 项目 | 功能 | 版本 | 端口分配 | 部署说明 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| 1 | cmcciot-meter-registry-microservice | 服务注册中心 | 1.0.0 | 8761 | localhost |
-| 2 | ***cmcciot-meter-gateway-microservice（暂时集成到auth中去）*** | 路由网关 | 1.0.0 | 8502 | 159 server，160 server |
-| 3 | cmcciot-meter-auth-microservice | 路由网关，权限认证微服务 | 1.0.0 | 8763 | 159 server，160 server |
-| 4 | cmcciot-meter-fee-microservice | 费用管理微服务 | 1.0.0 | 8764 | 159 server，160 server |
-| 5 | cmcciot-meter-admin-microservice | 后台管理微服务 | 1.0.0 | 8765 | 159 server，160 server |
-| 6 | cmcciot-meter-dataanalysis-microservice | 表计上传微服务 | 1.0.0 | 8766 | 159 server,160 server |
-| 7 | cmcciot-meter-report-microservice | 报表微服务 | 1.0.0 | 8767 | 159 server，160 server |
+| 1 | spring-cloud-registry-microservice | 服务注册中心 | 1.0.0 | 8761 | localhost |
+| 2 | ***spring-cloud-gateway-microservice（暂时集成到auth中去）*** | 路由网关 | 1.0.0 | 8502 | 159 server，160 server |
+| 3 | spring-cloud-auth-microservice | 路由网关，权限认证微服务 | 1.0.0 | 8763 | 159 server，160 server |
+| 4 | spring-cloud-fee-microservice | 费用管理微服务 | 1.0.0 | 8764 | 159 server，160 server |
+| 5 | spring-cloud-admin-microservice | 后台管理微服务 | 1.0.0 | 8765 | 159 server，160 server |
+| 6 | spring-cloud-dataanalysis-microservice | 表计上传微服务 | 1.0.0 | 8766 | 159 server,160 server |
+| 7 | spring-cloud-report-microservice | 报表微服务 | 1.0.0 | 8767 | 159 server，160 server |
 
 ## 功能说明
 1. registry注册中心（单个实例）：暂时承担注册中心任务

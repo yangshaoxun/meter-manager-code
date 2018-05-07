@@ -19,52 +19,53 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+group = 'com.cmcciot'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+ext {
+	springCloudVersion = 'Finchley.RC1'
+}
+
+dependencies {
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
 //为所有gradle project引入springcloud公共依赖
 allprojects {
 	
 	apply plugin: "java"
     apply plugin: "application"
     //所有项目都是spring boot项目
-    apply plugin: "org.springframework.boot"
+    //apply plugin: "org.springframework.boot"
     //生成eclipse工程所需目录
     apply plugin: "eclipse"
-    //使用idea ide的打开此配置，关闭上面eclipse配置
-    apply plugin: "idea"
     //可以使用maven指令
     apply plugin: "maven"
     apply plugin: "io.spring.dependency-management"
     
     repositories {
-    	//全部从私服内部仓库更新包
-        //maven { url saas_repos }
-        maven {url "https://repo.spring.io/libs-release"}
-        maven {url "https://repo.spring.io/libs-snapshot"}
 	    maven {url "https://repo.spring.io/milestone"}
-        jcenter()
-        //mavenCentral()
+        mavenCentral()
         
-    }
-    configurations {
-        //日志框架，项目采用spring boot默认的logback框架
-        //compile.exclude group: "ch.qos.logback"
-        compile.exclude group: "com.amazonaws"
     }
     dependencyManagement {
         imports {
-            //spring bom helps us to declare dependencies without specifying version numbers.
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
         }
     }
-}
-
-group = 'com.cmcciot.meter'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
