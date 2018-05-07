@@ -37,7 +37,6 @@ ext {
 
 dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 dependencyManagement {
