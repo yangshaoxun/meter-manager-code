@@ -21,7 +21,7 @@
 | 序号 | 项目 | 功能 | 版本 | 端口分配 | 部署说明 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | 1 | spring-cloud-registry-microservice | 服务注册中心 | 1.0.0 | 8761 | localhost |
-| 2 | ***spring-cloud-gateway-microservice（暂时集成到auth中去）*** | 路由网关 | 1.0.0 | 8502 | 159 server，160 server |
+| 2 | spring-cloud-gateway-microservice | 路由网关 | 1.0.0 | 8502 | 159 server，160 server |
 | 3 | spring-cloud-auth-microservice | 路由网关，权限认证微服务 | 1.0.0 | 8763 | 159 server，160 server |
 | 4 | spring-cloud-fee-microservice | 费用管理微服务 | 1.0.0 | 8764 | 159 server，160 server |
 | 5 | spring-cloud-admin-microservice | 后台管理微服务 | 1.0.0 | 8765 | 159 server，160 server |
